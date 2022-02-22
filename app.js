@@ -5,7 +5,10 @@ const path = require("path");
 
 const pathStatic = path.resolve(__dirname , "./public")
 app.use( express.static(pathStatic))
-app.listen(3000 , () => console.log("Servidor corriendo"));
+
+
+app.listen(process.env.PORT || 3000 , () => {
+    console.log("Servidor corriendo")});
 
 app.get('/' , (req , res) =>{
     res.sendFile(path.join(__dirname , '/views/home.html'))
